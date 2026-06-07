@@ -5,21 +5,550 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Инструкция пациенту: поясничный ортез</title>
   <style>
-    :root{--bg:#07111f;--ink:#eef6ff;--muted:#c9d7e8;--paper:#fff;--text:#17212f;--line:#dce5ed;--blue:#1268ff;--emerald:#00a86b;--amber:#ffc533;--red:#e9503f;--shadow:0 24px 58px rgba(0,0,0,.28)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 0%,rgba(0,168,107,.24),transparent 28%),radial-gradient(circle at 90% 8%,rgba(18,104,255,.24),transparent 34%),var(--bg);line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}.nav{position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,.12);background:rgba(7,17,31,.92);backdrop-filter:blur(14px)}.nav-inner{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:inline-flex;align-items:center;gap:10px;font-weight:900}.brand-mark{width:36px;height:36px;display:grid;place-items:center;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--emerald));color:#fff}.nav-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;color:#dbe8ef;font-size:14px;font-weight:800}.nav-links a{padding:8px 10px;border-radius:8px}.hero{min-height:calc(100vh - 66px);padding:62px 0 42px;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.9fr);gap:34px;align-items:center}.badge{width:fit-content;padding:8px 12px;border:1px solid rgba(0,168,107,.35);border-radius:8px;background:rgba(255,255,255,.08);color:#dffbf2;font-size:14px;font-weight:900}h1{margin:18px 0;max-width:720px;font-size:clamp(38px,6vw,70px);line-height:1;letter-spacing:0}.lead{max-width:690px;margin:0 0 24px;color:var(--muted);font-size:20px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:8px;background:linear-gradient(135deg,var(--emerald),var(--blue));color:#fff;font-weight:900;box-shadow:0 18px 34px rgba(0,168,107,.24)}.btn.secondary{background:#fff;color:#102032;box-shadow:0 16px 30px rgba(0,0,0,.18)}.hero-photo,.photo-card{border-radius:8px;overflow:hidden;background:#fff;color:var(--text);box-shadow:var(--shadow)}img{width:100%;display:block;object-fit:cover}.hero-photo img{height:520px}.section{padding:68px 0}.section.alt{background:linear-gradient(135deg,rgba(18,104,255,.12),rgba(0,168,107,.11)),#0d1929}.section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:26px}h2{margin:0;font-size:clamp(30px,4vw,46px);line-height:1.08}.section-head p{max-width:470px;margin:0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card,.warning,.note{border-radius:8px;background:var(--paper);color:var(--text);box-shadow:var(--shadow)}.card{padding:22px;border:1px solid var(--line)}.num{width:42px;height:42px;margin-bottom:14px;display:grid;place-items:center;border-radius:8px;background:#e7f8f1;color:var(--emerald);font-weight:900;font-size:20px}.card h3{margin:0 0 8px;font-size:21px;line-height:1.2}.card p,.card li,.warning li,.note p,.photo-card p{color:#617184}.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.photo-card img{height:300px}.photo-card div{padding:18px}.photo-card h3{margin:0 0 8px;font-size:22px}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.check{padding:18px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);font-weight:800}.check span{display:inline-grid;place-items:center;width:26px;height:26px;margin-right:8px;border-radius:8px;background:#e7f8f1;color:var(--emerald)}.warning{padding:28px;border:1px solid rgba(233,80,63,.25);background:#fff7f5}.warning h2{color:#9b1c1c}.note{padding:24px;border-left:6px solid var(--amber)}footer{padding:32px 0;border-top:1px solid rgba(255,255,255,.12);color:var(--muted)}@media(max-width:860px){.hero,.photo-grid,.grid,.checklist{grid-template-columns:1fr}.hero{min-height:auto}.hero-photo img{height:360px}.section-head{align-items:flex-start;flex-direction:column}}@media(max-width:560px){.wrap{width:min(100% - 28px,1120px)}.nav-inner{align-items:flex-start;flex-direction:column;padding:12px 0}.hero{padding-top:42px}.lead{font-size:18px}}
+    :root {
+      --bg: #07111f;
+      --panel: #101c2c;
+      --paper: #ffffff;
+      --ink: #eef6ff;
+      --text: #17212f;
+      --muted: #617184;
+      --line: #dce5ed;
+      --blue: #1268ff;
+      --emerald: #00a86b;
+      --amber: #ffc533;
+      --red: #e9503f;
+      --shadow: 0 24px 58px rgba(0, 0, 0, .28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(0, 168, 107, .24), transparent 28%),
+        radial-gradient(circle at 90% 8%, rgba(18, 104, 255, .24), transparent 34%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(7, 17, 31, .88);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--emerald));
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      color: #dbe8ef;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .hero {
+      min-height: calc(100vh - 66px);
+      padding: 62px 0 42px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .badge {
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid rgba(0, 168, 107, .35);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+      color: #dffbf2;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 18px 0;
+      max-width: 720px;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 0 0 24px;
+      color: #c9d7e8;
+      font-size: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--emerald), var(--blue));
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 34px rgba(0, 168, 107, .24);
+    }
+
+    .btn.secondary {
+      background: #ffffff;
+      color: #102032;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, .18);
+    }
+
+    .hero-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo img,
+    .photo-card img {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .hero-photo img {
+      height: 520px;
+    }
+
+    .section {
+      padding: 68px 0;
+    }
+
+    .section.alt {
+      background:
+        linear-gradient(135deg, rgba(18, 104, 255, .12), rgba(0, 168, 107, .11)),
+        #0d1929;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+    }
+
+    .section-head p {
+      max-width: 470px;
+      margin: 0;
+      color: #c9d7e8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card,
+    .warning,
+    .note,
+    .photo-card {
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+    }
+
+    .num {
+      width: 42px;
+      height: 42px;
+      margin-bottom: 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #e7f8f1;
+      color: var(--emerald);
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .card p,
+    .card li,
+    .warning li,
+    .note p {
+      color: var(--muted);
+    }
+
+    .card ul,
+    .warning ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .photo-card {
+      overflow: hidden;
+    }
+
+    .photo-card img {
+      height: 300px;
+    }
+
+    .photo-card div {
+      padding: 18px;
+    }
+
+    .photo-card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .photo-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .check {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .check span {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      margin-right: 8px;
+      border-radius: 8px;
+      background: #e7f8f1;
+      color: var(--emerald);
+    }
+
+    .warning {
+      padding: 28px;
+      border: 1px solid rgba(233, 80, 63, .25);
+      background: #fff7f5;
+    }
+
+    .warning h2 {
+      color: #9b1c1c;
+    }
+
+    .note {
+      padding: 24px;
+      border-left: 6px solid var(--amber);
+    }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      color: #c9d7e8;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .photo-grid,
+      .grid,
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-photo img {
+        height: 360px;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
-  <nav class="nav"><div class="wrap nav-inner"><a class="brand" href="#top"><span class="brand-mark">О</span><span>Поясничный ортез</span></a><div class="nav-links"><a href="#choose">Выбор</a><a href="#wear">Ношение</a><a href="#danger">Когда к врачу</a></div></div></nav>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Инструкция пациенту">
+        <span class="brand-mark">О</span>
+        <span>Поясничный ортез</span>
+      </a>
+      <div class="nav-links" aria-label="Разделы">
+        <a href="#choose">Выбор</a>
+        <a href="#wear">Ношение</a>
+        <a href="#danger">Когда к врачу</a>
+      </div>
+    </div>
+  </nav>
+
   <main id="top">
-    <section class="wrap hero"><div><div class="badge">Инструкция для пациента</div><h1>Как выбрать и правильно носить поясничный ортез</h1><p class="lead">Пояс нужен для поддержки поясничного отдела позвоночника и снижения нагрузки во время активности. Он должен помогать, а не давить, натирать или заменять лечение.</p><div class="hero-actions"><a class="btn" href="#choose">Как выбрать при покупке</a><a class="btn secondary" href="#wear">Как носить</a></div></div><div class="hero-photo"><img src="data:image/jpeg;base64,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" alt="Пациент надевает поясничный ортез поверх футболки"></div></section>
-    <section class="section alt" id="choose"><div class="wrap"><div class="section-head"><h2>Как выбрать пояс при покупке</h2><p>Главное: купить именно поясничный или пояснично-крестцовый ортез подходящего размера и степени фиксации.</p></div><div class="grid"><article class="card"><div class="num">1</div><h3>Выберите правильный тип</h3><p>Нужен поясничный или пояснично-крестцовый ортез. Обычный согревающий пояс может не дать нужной поддержки.</p></article><article class="card"><div class="num">2</div><h3>Предпочтительно полужесткий</h3><p>При болях в пояснице чаще используют модель с ребрами жесткости: она поддерживает, но не должна полностью “заковывать”.</p></article><article class="card"><div class="num">3</div><h3>Размер не по одежде</h3><p>Измерьте обхват талии/живота по таблице производителя. Размерные сетки у моделей разные.</p></article></div></div></section>
-    <section class="section"><div class="wrap photo-grid"><article class="photo-card"><img src="data:image/jpeg;base64,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" alt="Измерение обхвата"><div><h3>Измерьте обхват</h3><p>Лента должна идти ровно, без сильного натяжения. Сравните результат с таблицей производителя.</p></div></article><article class="photo-card"><img src="data:image/jpeg;base64,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" alt="Поясничный ортез"><div><h3>Примерьте перед покупкой</h3><p>Походите, присядьте, аккуратно наклонитесь. Пояс не должен скручиваться, съезжать или давить краями.</p></div></article></div></section>
-    <section class="section alt" id="wear"><div class="wrap"><div class="section-head"><h2>Как правильно надевать и носить</h2><p>Пояс надевают в периоды нагрузки: ходьба, поездки, работа стоя, бытовые дела, усиление боли.</p></div><div class="grid"><article class="card"><div class="num">1</div><h3>Надевайте на тонкую ткань</h3><p>Лучше поверх хлопковой футболки или белья, не на голую кожу.</p></article><article class="card"><div class="num">2</div><h3>Расположите по центру поясницы</h3><p>Широкая часть должна поддерживать поясницу, нижний край обычно захватывает верхнюю часть таза.</p></article><article class="card"><div class="num">3</div><h3>Затяните без пережатия</h3><p>Должна быть поддержка, но дыхание свободное. Не допускайте онемения или сильного давления.</p></article></div></div></section>
-    <section class="section"><div class="wrap"><div class="section-head"><h2>Проверьте посадку</h2><p>Эти признаки помогают понять, что ортез подобран и надет правильно.</p></div><div class="checklist"><div class="check"><span>✓</span>Пояс сидит плотно, но не мешает дышать</div><div class="check"><span>✓</span>Нет онемения, жжения, пульсации</div><div class="check"><span>✓</span>Он не съезжает при ходьбе</div><div class="check"><span>✓</span>Края не натирают кожу</div></div></div></section>
-    <section class="section" id="danger"><div class="wrap warning"><h2>Когда прекратить ношение и связаться с врачом</h2><ul><li>усиление боли;</li><li>онемение, слабость в ноге;</li><li>нарушение мочеиспускания или дефекации;</li><li>выраженное покраснение кожи, сыпь, волдыри, натирание;</li><li>ощущение, что пояс резко ухудшает состояние.</li></ul></div></section>
-    <section class="section"><div class="wrap note"><h2>Главное правило</h2><p>Пояс должен поддерживать и уменьшать нагрузку, а не причинять боль или сдавливать. Если появились сомнения по размеру, режиму ношения или ощущениям, лучше уточнить у врача.</p></div></section>
+    <section class="wrap hero">
+      <div>
+        <div class="badge">Инструкция для пациента</div>
+        <h1>Как выбрать и правильно носить поясничный ортез</h1>
+        <p class="lead">Пояс нужен для поддержки поясничного отдела позвоночника и снижения нагрузки во время активности. Он должен помогать, а не давить, натирать или заменять лечение.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#choose">Как выбрать при покупке</a>
+          <a class="btn secondary" href="#wear">Как носить</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://featol.com/cdn/shop/files/FEATOLBackBraceHowtoWear_4-StepApplicationGuideforOptimalLumbarSupport.webp?v=1774350710&width=1440" alt="Пошаговая инструкция надевания поясничного ортеза">
+      </div>
+    </section>
+
+    <section class="section alt" id="choose">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Как выбрать пояс при покупке</h2>
+          <p>Главное: купить именно поясничный или пояснично-крестцовый ортез подходящего размера и степени фиксации.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="num">1</div>
+            <h3>Выберите правильный тип</h3>
+            <p>Нужен поясничный или пояснично-крестцовый ортез. Обычный согревающий пояс может не дать нужной поддержки.</p>
+          </article>
+          <article class="card">
+            <div class="num">2</div>
+            <h3>Предпочтительно полужесткий</h3>
+            <p>При болях в пояснице чаще используют модель с ребрами жесткости: она поддерживает, но не должна полностью “заковывать”.</p>
+          </article>
+          <article class="card">
+            <div class="num">3</div>
+            <h3>Размер не по одежде</h3>
+            <p>Измерьте обхват талии/живота на уровне, указанном в таблице производителя. Размерные сетки у моделей разные.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap photo-grid">
+        <article class="photo-card">
+          <img src="https://featol.com/cdn/shop/files/FEATOLBackBraceSizeChart_SMto5XL_ChooseYourSizeatNavelCircumference.webp?v=1774350710&width=1440" alt="Таблица размеров и измерение обхвата для поясничного ортеза">
+          <div>
+            <h3>Измерьте обхват</h3>
+            <p>Сантиметровая лента должна идти ровно, без сильного натяжения. Сравните результат с таблицей конкретного производителя.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="https://featol.com/cdn/shop/files/FEATOLBackBraceProductDetails_LumbarPad_ElasticMesh_StrongSupport_BreathableMaterial.webp?v=1774350710&width=1440" alt="Детали поясничного ортеза: ребра жесткости, сетка, поясничная подушка">
+          <div>
+            <h3>Примерьте перед покупкой</h3>
+            <p>Походите, присядьте, аккуратно наклонитесь. Пояс не должен скручиваться, съезжать или давить краями.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="wear">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Как правильно надевать и носить</h2>
+          <p>Пояс надевают в периоды нагрузки: ходьба, поездки, работа стоя, бытовые дела, усиление боли.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="num">1</div>
+            <h3>Надевайте на тонкую ткань</h3>
+            <p>Лучше поверх хлопковой футболки или белья, не на голую кожу. Так меньше риск натирания.</p>
+          </article>
+          <article class="card">
+            <div class="num">2</div>
+            <h3>Расположите по центру поясницы</h3>
+            <p>Широкая часть должна поддерживать поясницу, нижний край обычно захватывает верхнюю часть таза/крестца.</p>
+          </article>
+          <article class="card">
+            <div class="num">3</div>
+            <h3>Затяните без пережатия</h3>
+            <p>Должна быть поддержка, но дыхание свободное. Не допускайте онемения, пульсации или сильного давления на живот.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Проверьте посадку</h2>
+          <p>Эти признаки помогают понять, что ортез подобран и надет правильно.</p>
+        </div>
+        <div class="checklist">
+          <div class="check"><span>✓</span>Пояс сидит плотно, но не мешает дышать</div>
+          <div class="check"><span>✓</span>Нет онемения, жжения, пульсации</div>
+          <div class="check"><span>✓</span>Он не съезжает вверх или вниз при ходьбе</div>
+          <div class="check"><span>✓</span>Края не натирают кожу и не давят болезненно</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Важные правила</h2>
+          <p>Ортез поддерживает спину, но не делает позвоночник “неуязвимым”. Нагрузку увеличивают постепенно.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Не носите постоянно без необходимости</h3>
+            <p>Если врач не назначил другой режим, пояс используют во время нагрузки и обычно снимают на сон и отдых лежа.</p>
+          </article>
+          <article class="card">
+            <h3>Не заменяйте им лечение</h3>
+            <p>Пояс не отменяет упражнения, движение, лекарства или другие рекомендации врача.</p>
+          </article>
+          <article class="card">
+            <h3>Ухаживайте по инструкции</h3>
+            <p>Стирайте и сушите так, как указано производителем. Следите, чтобы липучки держали, а ребра не деформировались.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="danger">
+      <div class="wrap warning">
+        <h2>Когда прекратить ношение и связаться с врачом</h2>
+        <ul>
+          <li>усиление боли;</li>
+          <li>онемение, слабость в ноге;</li>
+          <li>нарушение мочеиспускания или дефекации;</li>
+          <li>выраженное покраснение кожи, сыпь, волдыри, натирание;</li>
+          <li>ощущение, что пояс резко ухудшает состояние.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap note">
+        <h2>Главное правило</h2>
+        <p>Пояс должен поддерживать и уменьшать нагрузку, а не причинять боль или сдавливать. Если появились сомнения по размеру, режиму ношения или ощущениям, лучше уточнить у врача.</p>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap">Инструкция носит справочный характер и дополняет рекомендации лечащего врача.</div></footer>
+
+  <footer>
+    <div class="wrap">
+      Инструкция носит справочный характер и дополняет рекомендации лечащего врача.
+    </div>
+  </footer>
 </body>
 </html>
